@@ -24,7 +24,7 @@ const PacienteController = {
          }       
 
        const pacientes = await Paciente.findAll(filter);
-       res.json(pacientes);
+       res.status(200).json(pacientes);
    },
     async cadastrarPaciente(req, res){
 
@@ -55,7 +55,7 @@ const PacienteController = {
             }
         );       
         const PacienteUpdated = await Paciente.findByPk(id);
-        return res.json(PacienteUpdated);
+        return res.status(200).json(PacienteUpdated);
     },
     async deletarPaciente(req, res) {
         const {id} = req.params;
