@@ -1,5 +1,6 @@
 const Psicologo = require("../models/Psicologo");
 const { Op } = require("sequelize");
+const bcrypt = require('bcryptjs');
 
 
 const PsicologoController = {
@@ -28,17 +29,28 @@ const PsicologoController = {
    },
     async cadastrarPsicologo(req, res){
 
+        try{
         const { nome, email, senha, apresentacao } = req.body;
+        const novaSenha = bcrypt.hashSync(senha,10);
+        
         
         const novoPsicologo = await Psicologo.create({
             nome,
             email,
-            senha,
+            senha: novaSenha,
             apresentacao
         });
 
-        res.status(201).json("Psicologo cadastrada!");
+        res.status(201).json("Psicologo cadastrado!");
+    
+        } catch{
+            console.log("Erro ao cadastrar psicólogo")
+            console.error(error)
+            return res.status(500).json("Erro ao cadastrar psicólogo")
+        }
+    
     },
+    
     async atualizarPsicologo(req, res) {
         const {id} = req.params;
         const {nome, email, senha, apresentacao} = req.body;

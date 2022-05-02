@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 const DB_NAME = "lavie";
 const DB_USER = "root";
-const DB_PASS = "cawetr11";
+const DB_PASS = "mysql"; //alterar de acordo com a senha do seu banco
 const DB_CONFIG = {
   dialect: "mysql",
   host: "localhost",
