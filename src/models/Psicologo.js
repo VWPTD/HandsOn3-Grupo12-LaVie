@@ -14,14 +14,15 @@ const Psicologo = db.define("Psicologo", {
             type: DataTypes.STRING
         },
         senha: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            
         },
         apresentacao: {
             type: DataTypes.STRING
         },
     },
     {
-        tableName: "psicologo",
+        tableName: "Psicologo",
         timestamps: false,
     }
 );
