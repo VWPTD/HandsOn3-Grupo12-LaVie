@@ -3,12 +3,13 @@ const loginController = require("../controllers/loginController");
 const PacienteController = require("../controllers/pacienteController");
 const PsicologoController = require("../controllers/psicologoController");
 const cadastroPsicologoValidator = require("../validators/cadastroPsicologoValidator");
+const cadastroPacienteValidador = require("../validators/cadastroPacienteValidador");
 const loginValidator = require("../validators/loginValidator");
 const routes = express.Router();
 
 routes.get("/paciente", PacienteController.listarPaciente);
 routes.put("/paciente/:id/atualizar", PacienteController.atualizarPaciente);
-routes.post("/paciente/cadastrar", PacienteController.cadastrarPaciente);
+routes.post("/paciente/cadastrar", cadastroPacienteValidador,PacienteController.cadastrarPaciente);
 routes.delete("/paciente/:id/deletar", PacienteController.deletarPaciente);
 
 routes.get("/psicologo", PsicologoController.listarPsicologo);
