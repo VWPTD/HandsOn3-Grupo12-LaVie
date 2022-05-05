@@ -6,7 +6,8 @@ const bcrypt = require('bcryptjs');
 const PsicologoController = {
     async listarPsicologo(req, res){
 
-       const { termo, page = 1 } = req.query;       
+       const { page = 1 } = req.query;
+       const { id } = req.params;       
 
        const limit = 10;
        const offset = parseInt(limit) * (parseInt(page) - 1); 
@@ -16,10 +17,10 @@ const PsicologoController = {
            atrributes: ["nome"],
        };             
 
-       if (termo) {
+       if (id) {
            Object.assign(filter, {
              where: {               
-               nome: { [Op.substring]: termo },
+               id,
              },
            });
          }       

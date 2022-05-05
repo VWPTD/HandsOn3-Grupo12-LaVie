@@ -1,0 +1,3 @@
+Link da API realizado pelo postman
+
+https://www.postman.com/gold-desert-487027/workspace/handson3-grupo12-lavie/documentation/20804775-fd9e0316-2c15-4e5e-abee-1b98c8a618ed

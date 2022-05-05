@@ -5,7 +5,8 @@ const AtendimentoController = {
     async listarAtendimento(req, res){
 
         try{
-            const { termo, page = 1 } = req.query;       
+            const { page = 1 } = req.query;
+            const { id } = req.params;        
 
             const limit = 10;
             const offset = parseInt(limit) * (parseInt(page) - 1); 
@@ -15,10 +16,10 @@ const AtendimentoController = {
                 atrributes: ["id"],
             };             
 
-            if (termo) {
+            if (id) {
                 Object.assign(filter, {
                     where: {               
-                    id: { [Op.substring]: termo },
+                    id,
                     },
                 });
                 }       
