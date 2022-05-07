@@ -22,7 +22,11 @@ const Psicologo = db.define("Psicologo", {
         },
     },
     {
+<<<<<<< HEAD
         tableName: "psicologo",
+=======
+        tableName: "Psicologo",
+>>>>>>> d02d5684d478d5130ad69ca8357c3ec580ebbe0f
         timestamps: false,
     }
 );

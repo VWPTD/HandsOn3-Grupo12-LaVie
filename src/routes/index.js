@@ -9,11 +9,13 @@ const autenticador = require("../middleware/autenticador");
 const AtendimentoController = require("../controllers/atendimentoController");
 
 routes.get("/paciente", PacienteController.listarPaciente);
+routes.get("/paciente/:id", PacienteController.listarPaciente);
 routes.put("/paciente/:id/atualizar", PacienteController.atualizarPaciente);
-routes.post("/paciente/cadastrar", PacienteController.cadastrarPaciente);
+routes.post("/paciente/cadastrar", cadastroPacienteValidador,PacienteController.cadastrarPaciente);
 routes.delete("/paciente/:id/deletar", PacienteController.deletarPaciente);
 
 routes.get("/psicologo", PsicologoController.listarPsicologo);
+routes.get("/psicologo/:id", PsicologoController.listarPsicologo);
 routes.put("/psicologo/:id/atualizar", PsicologoController.atualizarPsicologo);
 routes.post("/psicologo/cadastrar", cadastroPsicologoValidator, PsicologoController.cadastrarPsicologo);
 routes.delete("/psicologo/:id/deletar", PsicologoController.deletarPsicologo);
