@@ -22,7 +22,7 @@ const Psicologo = db.define("Psicologo", {
         },
     },
     {
-        tableName: "Psicologo",
+        tableName: "psicologo",
         timestamps: false,
     }
 );

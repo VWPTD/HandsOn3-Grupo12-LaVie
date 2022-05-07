@@ -6,11 +6,12 @@ const secret = require('../config/secret')
 const loginController = {
         
     async login(req,res){
+        console.log(req.body)
         try{
             const{email, senha} = req.body;
             const userLogado = await Psicologo.findOne({
                 where: {
-                    email
+                    email : email
                 }
             });
 
@@ -36,7 +37,7 @@ const loginController = {
         }
         
         catch(error){
-            console.error(error);
+            console.log(error);
             return res.status(500).json("Erro ao executar login")
         }
     }

@@ -43,7 +43,7 @@ const PsicologoController = {
 
         res.status(201).json("Psicologo cadastrado!");
     
-        } catch{
+        } catch(error){
             console.log("Erro ao cadastrar psicólogo")
             console.error(error)
             return res.status(500).json("Erro ao cadastrar psicólogo")
